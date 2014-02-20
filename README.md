@@ -16,7 +16,7 @@ Leiningen:
 
 ## Usage
 
-```
+```clojure
 (require '[web-search.google :as g])
 
 (g/search "hello world" {:api-key "mykey" :search-engine-id "my-custom-search-id"})
