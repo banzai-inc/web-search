@@ -19,7 +19,7 @@ Leiningen:
 ```clojure
 (require '[web-search.google :as g])
 
-(g/search "hello world" {:api-key "mykey" :search-engine-id "my-custom-search-id"})
+(g/search {:api-key "mykey" :search-engine-id "my-custom-search-id"} "hello world")
 ```
 
 ## License

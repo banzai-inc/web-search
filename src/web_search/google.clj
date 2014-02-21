@@ -14,11 +14,9 @@
 
 (defn- to-url
   "Construct REST url"
-  [query api-key search-engine-id]
+  [api-key search-engine-id query]
   (-> (url base-url)
-      (assoc :query {:key api-key
-                     :cx search-engine-id
-                     :q query})
+      (assoc :query {:key api-key :cx search-engine-id :q query})
       (str)))
 
 (defn- as-results
@@ -27,8 +25,8 @@
   (map (fn [r] (core/->WebResult (:title r) (:link r) (:snippet r))) raw))
 
 (defn search
-  [query {:keys [api-key search-engine-id]}]
-  (-> (to-url query api-key search-engine-id) 
+  [{:keys [api-key search-engine-id]} query]
+  (-> (to-url api-key search-engine-id query)
       (http/get)
       (:body)
       (json/parse-string true)
