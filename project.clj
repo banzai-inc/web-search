@@ -1,4 +1,4 @@
-(defproject web-search "0.1.1"
+(defproject web-search "0.1.2"
   :description "Clojure facilities for searching the web."
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
